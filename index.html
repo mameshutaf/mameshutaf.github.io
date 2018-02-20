@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>מה משותף?</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=0.6">
+
+        <link rel="stylesheet" type="text/css" href="style.css" />
+        <script type="text/javascript" src="all_questions.js"></script>
+        <script type="text/javascript" src="game.js" /></script>
+
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <script type="text/javascript">
+          google.charts.load('current', {'packages':['corechart']});
+          google.charts.setOnLoadCallback(drawChart);
+
+          function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+              ['חודש', 'אחוז שאלות מה המשותף'],
+              ['09/2015',  5],
+              ['10/2015',  8.75],
+              ['11/2015',  2.5],
+              ['12/2015',  3],
+              ['01/2016',  7.5],
+              ['02/2016',  5],
+              ['03/2016',  7],
+              ['04/2016',  3.75],
+              ['05/2016',  5],
+              ['06/2016',  3.75],
+              ['07/2016',  5],
+              ['08/2016',  8],
+              ['09/2016',  9],
+              ['10/2016',  8.75],
+              ['11/2016',  12],
+              ['12/2016',  16.25],
+              ['01/2017',  8],
+              ['02/2017',  5],
+              ['03/2017',  6.25],
+              ['04/2017',  7.5],
+              ['05/2017',  13],
+              ['06/2017',  16.25],
+              ['07/2017',  12.5],
+              ['08/2017',  14],
+              ['09/2017',  11.25],
+              ['10/2017',  10],
+              ['11/2017',  13],
+              ['12/2017',  11.25],
+              ['01/2018',  16.25],
+              ['02/2018',  16.67],
+            ]);
+
+            var options = {
+              curveType: 'function',
+              legend: { position: 'bottom' }
+            };
+
+            var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+
+            chart.draw(data, options);
+          }
+        </script>
+
+    </head>
+    <body>
+		<div class="center">
+		   <h1>מה משותף</h1>
+        <h2 id="question"></h2>
+        <p id="reveal_answer_button" class="btn" onclick="reveal_answer()">חשפו את התשובה</p>
+        <p id="answer"></p>
+        <p id="another_question_button" class="btn" onclick="get_question()">עוד שאלה</p>
+
+    <div class="why">
+      <h3>מה הולך פה?</h3>
+      <p>
+האם גם אתם עוקבים בדאגה אחר הגידול החד בשיעור שאלות ״מה משותף״ במדור הטריוויה הפופולרי ״20 שאלות״ מאת יוענה גונן במוסף הארץ? מטרת אתר זה היא לעורר מודעות ציבורית לבעיה באמצעות הצגת שאלות מה משותף שהופיעו במדור בשנים האחרונות.
+    </p>
+      <p>
+הנתונים שאספנו ויוצגו להלן מוכיחים כי אין מדובר בתחושת בטן! עד מתי נמשיך לבהות ברשימת שמות, יישובים או פריטים ולענות תשובות סתמיות (אך נכונות טכנית) כמו ״כולן להקות״ או ״כולם אזרחים אמריקאים״?
+      </p>
+      <div id="chart_wrap">
+      <div id="curve_chart" style="width: 95%; height: 500px"></div>
+    </div>
+    </div>
+    </div>
+    </body>
+</html>
